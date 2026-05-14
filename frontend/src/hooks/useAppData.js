@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
  * Load all four static JSON files in parallel.
  *
  * Returns:
- *   { status, error, countries, clustersPayload, pairs, centroids, lookup }
+ *   { status, error, countries, clusters, pairs, dendrogram, lookup }
  *
  *   status          = 'loading' | 'ready' | 'error'
  *   countries       = array of country objects (iso3, name, tree, lat, lng)
@@ -37,8 +37,11 @@ export function useAppData() {
       fetch("/data/clusters.json").then(r => r.json()),
       fetch("/data/pairs.json").then(r => r.json()),
       fetch("/data/country_centroids.json").then(r => r.json()),
+      // dendrogram.json is optional — tolerate its absence so the app
+      // still boots if export_dendrogram.py hasn't been run yet.
+      fetch("/data/dendrogram.json").then(r => r.ok ? r.json() : null).catch(() => null),
     ])
-      .then(([countries, clustersPayload, pairs, centroids]) => {
+      .then(([countries, clusters, pairs, centroids, dendrogram]) => {
         if (cancelled) return;
 
         const byIso3 = Object.fromEntries(countries.map(c => [c.iso3, c]));
@@ -63,7 +66,8 @@ export function useAppData() {
           clustersPayload,
           pairs,
           centroids,
-          lookup: { byIso3, pair },
+          dendrogram,
+          lookup: { byIso3, clusterById, pair },
         });
       })
       .catch(err => {
