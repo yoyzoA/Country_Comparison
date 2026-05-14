@@ -1,4 +1,5 @@
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";import { OrbitControls, Html } from "@react-three/drei";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
 import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
@@ -25,7 +26,7 @@ const HOVER_SCALE = 1.8;
 const SELECTED_SCALE = 2.0;
 const HIT_RADIUS = 0.04;
 const EARTH_TEXTURE_URL = "https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg";
-const COLOR_SELECT_A = "#00ff88";   // green
+const COLOR_SELECT_A = "#00ffd1";   // cyan
 const COLOR_SELECT_B = "#ff8c42";   // amber
 const ARC_COLOR = "#ffffff";
 const ARC_SEGMENTS = 64;            // smoothness of the connection arc
@@ -100,7 +101,7 @@ function WireframeEarth({ children, paused }) {
       <mesh>
         <sphereGeometry args={[SPHERE_RADIUS, SPHERE_SEGMENTS, SPHERE_SEGMENTS]} />
         <meshBasicMaterial
-          color="#00ff88"
+          color="#00ffd1"
           wireframe
           transparent
           opacity={0.12}
@@ -226,22 +227,28 @@ function CountryDot({
 
 
 function CountryDots({
-  countries, lookup, hovered, selectedA, selectedB,
+  countries, clusterConfig, hovered, selectedA, selectedB,
   matchedIso3s, activeSpotlight,
   onHover, onUnhover, onClick,
 }) {
   const dots = useMemo(() => {
     return countries
       .filter(c => c.lat != null && c.lng != null)
-      .map(c => ({
-        country: c,
-        iso3: c.iso3,
-        position: latLngToVec3(c.lat, c.lng, SPHERE_RADIUS * DOT_OFFSET),
-        cluster: lookup.clusterById[c.cluster],
-        color: lookup.clusterById[c.cluster]?.color || "#ffffff",
-        clusterId: c.cluster,
-      }));
-  }, [countries, lookup]);
+      .map(c => {
+        // Resolve cluster + color from the ACTIVE configuration
+        const assignment = clusterConfig.assignmentByIso3[c.iso3];
+        const clusterId = assignment ? assignment.cluster : null;
+        const cluster = clusterId != null ? clusterConfig.clusterById[clusterId] : null;
+        return {
+          country: c,
+          iso3: c.iso3,
+          position: latLngToVec3(c.lat, c.lng, SPHERE_RADIUS * DOT_OFFSET),
+          cluster,
+          color: cluster ? cluster.color : "#ffffff",
+          clusterId,
+        };
+      });
+  }, [countries, clusterConfig]);
 
   return (
     <>
@@ -249,7 +256,6 @@ function CountryDots({
         const selectedAs = d.iso3 === selectedA ? "A"
                          : d.iso3 === selectedB ? "B"
                          : null;
-        // A dot is dimmed if either filter is active and excludes it
         let dimmed = false;
         if (matchedIso3s && !matchedIso3s.has(d.iso3)) dimmed = true;
         if (activeSpotlight !== null && d.clusterId !== activeSpotlight) dimmed = true;
@@ -291,7 +297,7 @@ function ConnectionArc({ posA, posB }) {
 }
 
 
-export default function Globe({ data, mode, selection, filters }) {
+export default function Globe({ data, mode, selection, filters, clusterConfig }) {
   const [hovered, setHovered] = useState(null);
   const { selectedA, selectedB, onCountryClick } = selection;
   const { matchedIso3s, activeSpotlight } = filters || {};
@@ -321,7 +327,7 @@ export default function Globe({ data, mode, selection, filters }) {
         <WireframeEarth paused={hovered !== null}>
           <CountryDots
             countries={data.countries}
-            lookup={data.lookup}
+            clusterConfig={clusterConfig}
             hovered={hovered}
             selectedA={selectedA}
             selectedB={selectedB}
@@ -339,7 +345,7 @@ export default function Globe({ data, mode, selection, filters }) {
 
         <OrbitControls
           enablePan={false}
-          enableZoom={false}
+          enableZoom={true}
           enableRotate={true}
           makeDefault
         />

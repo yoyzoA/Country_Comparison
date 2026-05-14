@@ -1,14 +1,18 @@
 /**
  * Clickable cluster list. Click toggles spotlight (sticky); hover previews it.
  * Filtered by search to only show clusters with at least one matching member.
+ *
+ * Reads clusters from `clusterConfig.clusters` (the active configuration).
  */
-export default function ClusterLegend({ data, filters }) {
+export default function ClusterLegend({ clusterConfig, filters }) {
   const { matchedIso3s, spotlightCluster, setSpotlightCluster, setHoveredCluster } = filters;
+
+  const allClusters = clusterConfig.clusters;
 
   // Filter clusters: only show ones with at least one country matching the search
   const visibleClusters = matchedIso3s
-    ? data.clusters.filter(c => c.members.some(iso3 => matchedIso3s.has(iso3)))
-    : data.clusters;
+    ? allClusters.filter(c => c.members.some(iso3 => matchedIso3s.has(iso3)))
+    : allClusters;
 
   const toggle = (id) => {
     setSpotlightCluster(prev => (prev === id ? null : id));
@@ -50,9 +54,13 @@ export default function ClusterLegend({ data, filters }) {
             }`}>
               {c.label}
             </div>
-            <div className="text-hud-textDim text-xs">
-              {c.size}
-            </div>
+            {/* Medoid badge (only present for k-medoids configs) */}
+            {c.medoid && (
+              <div className="text-hud-textDim text-[10px]" title="cluster medoid">
+                ◆{c.medoid}
+              </div>
+            )}
+            <div className="text-hud-textDim text-xs">{c.size}</div>
           </div>
         );
       })}

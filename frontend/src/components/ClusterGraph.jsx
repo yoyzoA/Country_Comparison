@@ -2,18 +2,26 @@ import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
 
 /**
- * Force-directed graph showing cluster relationships.
+ * Force-directed graph showing cluster relationships for the ACTIVE config.
  * Nodes = clusters, sized by member count, colored by cluster color.
  * Edges = average inter-cluster similarity (only edges above a threshold shown).
+ *
+ * Re-renders whenever clusterConfig changes (algorithm or k switch).
  */
 
-const EDGE_THRESHOLD = 0.72;   // only show edges where mean similarity > this
+const EDGE_THRESHOLD = 0.72;
 const NODE_MIN_R = 6;
 const NODE_MAX_R = 18;
 
 
-/** Compute mean similarity between every pair of clusters. */
-function buildClusterEdges(clusters, pairs, lookup) {
+function buildClusterEdges(clusters, pairs, byIso3) {
+  // local pair lookup (pairs keyed "A:B" lexicographic)
+  const pair = (a, b) => {
+    if (a === b) return null;
+    const key = a < b ? `${a}:${b}` : `${b}:${a}`;
+    return pairs[key] || null;
+  };
+
   const edges = [];
   for (let i = 0; i < clusters.length; i++) {
     for (let j = i + 1; j < clusters.length; j++) {
@@ -22,7 +30,7 @@ function buildClusterEdges(clusters, pairs, lookup) {
       let sum = 0, n = 0;
       for (const a of ca.members) {
         for (const b of cb.members) {
-          const p = lookup.pair(a, b);
+          const p = pair(a, b);
           if (p) { sum += p.similarity; n++; }
         }
       }
@@ -37,29 +45,27 @@ function buildClusterEdges(clusters, pairs, lookup) {
 }
 
 
-export default function ClusterGraph({ data, filters }) {
+export default function ClusterGraph({ data, clusterConfig, filters }) {
   const svgRef = useRef();
   const { spotlightCluster, setSpotlightCluster, setHoveredCluster, activeSpotlight } = filters;
 
-  // Compute nodes and edges once (heavy)
+  // Recompute nodes/edges whenever the active config changes
   const { nodes, links } = useMemo(() => {
+    const clusters = clusterConfig.clusters;
     const sizeScale = d3.scaleSqrt()
-      .domain([1, d3.max(data.clusters, c => c.size) || 1])
+      .domain([1, d3.max(clusters, c => c.size) || 1])
       .range([NODE_MIN_R, NODE_MAX_R]);
 
-    const nodes = data.clusters.map(c => ({
+    const nodes = clusters.map(c => ({
       id: c.id,
       label: c.label,
       color: c.color,
       size: c.size,
       r: sizeScale(c.size),
     }));
-    const links = buildClusterEdges(data.clusters, data.pairs, data.lookup);
+    const links = buildClusterEdges(clusters, data.pairs, data.lookup.byIso3);
     return { nodes, links };
-  }, [data]);
-
-  // D3 simulation lives in a ref so it can be cleaned up on unmount
-  const simRef = useRef(null);
+  }, [clusterConfig, data]);
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -69,12 +75,10 @@ export default function ClusterGraph({ data, filters }) {
 
     svg.selectAll("*").remove();
 
-    // Background grid lines (subtle)
     const linkScale = d3.scaleLinear()
       .domain([EDGE_THRESHOLD, d3.max(links, l => l.weight) || 1])
       .range([0.15, 0.6]);
 
-    // Edges
     const linkSel = svg.append("g")
       .attr("class", "links")
       .selectAll("line")
@@ -84,7 +88,6 @@ export default function ClusterGraph({ data, filters }) {
       .attr("stroke-opacity", d => linkScale(d.weight))
       .attr("stroke-width", 1);
 
-    // Nodes
     const nodeSel = svg.append("g")
       .attr("class", "nodes")
       .selectAll("g")
@@ -115,7 +118,6 @@ export default function ClusterGraph({ data, filters }) {
       .attr("font-weight", "bold")
       .style("pointer-events", "none");
 
-    // Force simulation
     const sim = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id).distance(50).strength(d => d.weight - 0.5))
       .force("charge", d3.forceManyBody().strength(-80))
@@ -131,11 +133,10 @@ export default function ClusterGraph({ data, filters }) {
       nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
     });
 
-    simRef.current = sim;
     return () => sim.stop();
   }, [nodes, links, setSpotlightCluster, setHoveredCluster]);
 
-  // Reactive highlight: when activeSpotlight changes, dim non-active nodes
+  // Reactive highlight on spotlight change
   useEffect(() => {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);

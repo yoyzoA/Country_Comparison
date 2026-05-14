@@ -2,16 +2,23 @@ import CountrySlot from "./CountrySlot";
 import BreakdownBar from "./BreakdownBar";
 import { similarityPercentile } from "../lib/stats";
 
-const COLOR_A = "#00ff88";
+const COLOR_A = "#00ffd1";
 const COLOR_B = "#ff8c42";
 
-export default function RightPanel({ data, mode, selection }) {
+export default function RightPanel({ data, mode, selection, clusterConfig }) {
   const { selectedA, selectedB, onPickA, onPickB, onClearA, onClearB } = selection;
 
   const countryA = selectedA ? data.lookup.byIso3[selectedA] : null;
   const countryB = selectedB ? data.lookup.byIso3[selectedB] : null;
-  const clusterA = countryA ? data.lookup.clusterById[countryA.cluster] : null;
-  const clusterB = countryB ? data.lookup.clusterById[countryB.cluster] : null;
+
+  // Resolve cluster from the ACTIVE config's assignment table
+  const resolveCluster = (iso3) => {
+    if (!iso3) return null;
+    const a = clusterConfig.assignmentByIso3[iso3];
+    return a ? clusterConfig.clusterById[a.cluster] : null;
+  };
+  const clusterA = resolveCluster(selectedA);
+  const clusterB = resolveCluster(selectedB);
 
   const result = (selectedA && selectedB)
     ? data.lookup.pair(selectedA, selectedB)
@@ -23,6 +30,9 @@ export default function RightPanel({ data, mode, selection }) {
 
   const maxCost = breakdown ? Math.max(...breakdown.map(b => b.cost), 0.001) : 1;
   const pctile = result ? similarityPercentile(result.similarity, data.pairs) : null;
+
+  // Are A and B in the same cluster under the active config?
+  const sameCluster = clusterA && clusterB && clusterA.id === clusterB.id;
 
   return (
     <div className="hud-panel hud-panel-corner h-full flex flex-col p-3">
@@ -64,6 +74,18 @@ export default function RightPanel({ data, mode, selection }) {
                 }
               </div>
             )}
+            {/* Same-cluster indicator under the active config */}
+            <div className="text-xs mt-1">
+              {sameCluster ? (
+                <span className="text-hud-ok">
+                  ◆ same cluster (CL{clusterA.id})
+                </span>
+              ) : (
+                <span className="text-hud-textDim">
+                  different clusters (CL{clusterA?.id} / CL{clusterB?.id})
+                </span>
+              )}
+            </div>
           </>
         ) : (
           <div className="text-hud-textDim text-2xl">--.-%</div>

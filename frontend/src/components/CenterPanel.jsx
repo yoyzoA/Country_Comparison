@@ -1,6 +1,6 @@
 import Globe from "./Globe";
 
-export default function CenterPanel({ data, mode, selection, filters }) {
+export default function CenterPanel({ data, mode, selection, filters, clusterConfig }) {
   return (
     <div className="hud-panel hud-panel-corner h-full flex flex-col p-3 relative">
       <div className="hud-header mb-2 flex items-center justify-between">
@@ -11,7 +11,13 @@ export default function CenterPanel({ data, mode, selection, filters }) {
       </div>
 
       <div className="flex-1 relative">
-        <Globe data={data} mode={mode} selection={selection} filters={filters} />
+        <Globe
+          data={data}
+          mode={mode}
+          selection={selection}
+          filters={filters}
+          clusterConfig={clusterConfig}
+        />
       </div>
     </div>
   );

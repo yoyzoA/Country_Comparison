@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
 
 /**
- * Load all three static JSON files in parallel.
+ * Load all four static JSON files in parallel.
  *
  * Returns:
  *   { status, error, countries, clusters, pairs, dendrogram, lookup }
  *
- *   status   = 'loading' | 'ready' | 'error'
- *   countries = array of country objects (iso3, name, cluster, probability, tree)
- *   clusters  = array of cluster objects (id, color, size, label, members)
- *   pairs     = the raw pairs lookup object, keyed "ISO3_A:ISO3_B" with A < B
- *   dendrogram = nested hierarchy tree from export_dendrogram.py (or null)
- *   lookup    = helper { byIso3, clusterById, pair(a, b) }
+ *   status          = 'loading' | 'ready' | 'error'
+ *   countries       = array of country objects (iso3, name, tree, lat, lng)
+ *   clustersPayload = the raw multi-config clusters.json
+ *                     { default, k_values, algorithms, configs }
+ *   pairs           = raw pairs lookup, keyed "ISO3_A:ISO3_B" with A < B
+ *   centroids       = { ISO3: [lat, lng] }
+ *   lookup          = { byIso3, pair }
+ *
+ * Note: cluster assignment is NO LONGER baked into countries — it depends on
+ * the active configuration, which App.jsx tracks. Components resolve cluster
+ * info via lib/clusterConfig.js using the active config.
  */
 export function useAppData() {
   const [state, setState] = useState({
     status: "loading",
     error: null,
     countries: null,
-    clusters: null,
+    clustersPayload: null,
     pairs: null,
+    centroids: null,
     lookup: null,
   });
 
@@ -38,9 +44,7 @@ export function useAppData() {
       .then(([countries, clusters, pairs, centroids, dendrogram]) => {
         if (cancelled) return;
 
-        // Build lookups for fast access
         const byIso3 = Object.fromEntries(countries.map(c => [c.iso3, c]));
-        const clusterById = Object.fromEntries(clusters.map(c => [c.id, c]));
 
         const pair = (a, b) => {
           if (a === b) return null;
@@ -48,7 +52,7 @@ export function useAppData() {
           return pairs[key] || null;
         };
 
-        // Attach centroids onto the country objects for convenience
+        // Attach centroids onto country objects
         countries.forEach(c => {
           const ll = centroids[c.iso3];
           c.lat = ll ? ll[0] : null;
@@ -59,7 +63,7 @@ export function useAppData() {
           status: "ready",
           error: null,
           countries,
-          clusters,
+          clustersPayload,
           pairs,
           centroids,
           dendrogram,

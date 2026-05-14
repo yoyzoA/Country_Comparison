@@ -1,1171 +1,1188 @@
 {
-  "method": "agglomerative",
-  "linkage": "average",
+  "algorithm": "kmedoids",
   "n_clusters": 14,
+  "k_requested": 14,
+  "linkage": null,
+  "medoids": [
+    "BEN",
+    "COL",
+    "CRI",
+    "DMA",
+    "FSM",
+    "GBR",
+    "GNB",
+    "GRC",
+    "JOR",
+    "KEN",
+    "KWT",
+    "LUX",
+    "SDN",
+    "SRB"
+  ],
   "countries": [
     {
       "iso3": "AFG",
       "name": "Afghanistan",
       "cluster": 10,
-      "probability": 0.5
+      "probability": 0.5255476236343384
     },
     {
       "iso3": "AGO",
       "name": "Angola",
-      "cluster": 11,
-      "probability": 0.5705413222312927
+      "cluster": 13,
+      "probability": 0.6024447679519653
     },
     {
       "iso3": "ALB",
       "name": "Albania",
-      "cluster": 10,
-      "probability": 0.5252674221992493
+      "cluster": 12,
+      "probability": 0.5109766721725464
     },
     {
       "iso3": "AND",
       "name": "Andorra",
-      "cluster": 6,
-      "probability": 0.5090832710266113
+      "cluster": 9,
+      "probability": 0.5327671766281128
     },
     {
       "iso3": "ARE",
       "name": "United Arab Emirates",
-      "cluster": 12,
-      "probability": 0.5567747950553894
+      "cluster": 11,
+      "probability": 0.5556349754333496
     },
     {
       "iso3": "ARG",
       "name": "Argentina",
-      "cluster": 8,
-      "probability": 0.5739916563034058
+      "cluster": 1,
+      "probability": 0.6774100661277771
     },
     {
       "iso3": "ARM",
       "name": "Armenia",
-      "cluster": 10,
-      "probability": 0.5805257558822632
+      "cluster": 7,
+      "probability": 0.5659379959106445
     },
     {
       "iso3": "ATG",
       "name": "Antigua and Barbuda",
-      "cluster": 3,
-      "probability": 0.6282243728637695
+      "cluster": 2,
+      "probability": 0.6087880730628967
     },
     {
       "iso3": "AUS",
       "name": "Australia",
-      "cluster": 0,
-      "probability": 0.5021652579307556
+      "cluster": 5,
+      "probability": 0.5413199663162231
     },
     {
       "iso3": "AUT",
       "name": "Austria",
       "cluster": 6,
-      "probability": 0.6157240867614746
+      "probability": 0.5590108036994934
     },
     {
       "iso3": "AZE",
       "name": "Azerbaijan",
-      "cluster": 10,
-      "probability": 0.5882653594017029
+      "cluster": 7,
+      "probability": 0.5751948952674866
     },
     {
       "iso3": "BDI",
       "name": "Burundi",
-      "cluster": 11,
-      "probability": 0.6033042669296265
+      "cluster": 13,
+      "probability": 0.5828487277030945
     },
     {
       "iso3": "BEL",
       "name": "Belgium",
-      "cluster": 6,
-      "probability": 0.6096437573432922
+      "cluster": 9,
+      "probability": 0.5775307416915894
     },
     {
       "iso3": "BEN",
       "name": "Benin",
-      "cluster": 11,
-      "probability": 0.6542322635650635
+      "cluster": 0,
+      "probability": 1.0
     },
     {
       "iso3": "BFA",
       "name": "Burkina Faso",
-      "cluster": 11,
-      "probability": 0.6153934597969055
+      "cluster": 0,
+      "probability": 0.651544988155365
     },
     {
       "iso3": "BGD",
       "name": "Bangladesh",
-      "cluster": 1,
-      "probability": 0.5353648662567139
+      "cluster": 8,
+      "probability": 0.5771134495735168
     },
     {
       "iso3": "BGR",
       "name": "Bulgaria",
       "cluster": 6,
-      "probability": 0.6229642033576965
+      "probability": 0.5461742281913757
     },
     {
       "iso3": "BHR",
       "name": "Bahrain",
-      "cluster": 12,
-      "probability": 0.5430644750595093
+      "cluster": 11,
+      "probability": 0.6223837733268738
     },
     {
       "iso3": "BHS",
       "name": "The Bahamas",
-      "cluster": 3,
-      "probability": 0.6153656840324402
+      "cluster": 2,
+      "probability": 0.6194233894348145
     },
     {
       "iso3": "BIH",
       "name": "Bosnia and Herzegovina",
-      "cluster": 6,
-      "probability": 0.5535661578178406
+      "cluster": 12,
+      "probability": 0.5670567750930786
     },
     {
       "iso3": "BLR",
       "name": "Belarus",
-      "cluster": 9,
-      "probability": 0.5113105177879333
+      "cluster": 12,
+      "probability": 0.558085024356842
     },
     {
       "iso3": "BLZ",
       "name": "Belize",
-      "cluster": 3,
-      "probability": 0.5682419538497925
+      "cluster": 2,
+      "probability": 0.650202214717865
     },
     {
       "iso3": "BOL",
       "name": "Bolivia",
-      "cluster": 8,
-      "probability": 0.5502572655677795
+      "cluster": 1,
+      "probability": 0.6205389499664307
     },
     {
       "iso3": "BRA",
       "name": "Brazil",
-      "cluster": 8,
-      "probability": 0.5
+      "cluster": 1,
+      "probability": 0.5661156177520752
     },
     {
       "iso3": "BRB",
       "name": "Barbados",
-      "cluster": 3,
-      "probability": 0.6005865335464478
+      "cluster": 2,
+      "probability": 0.6194028854370117
     },
     {
       "iso3": "BRN",
       "name": "Brunei",
-      "cluster": 3,
-      "probability": 0.5277577042579651
+      "cluster": 2,
+      "probability": 0.5783398747444153
     },
     {
       "iso3": "BTN",
       "name": "Bhutan",
-      "cluster": 3,
-      "probability": 0.5534364581108093
+      "cluster": 2,
+      "probability": 0.5627341866493225
     },
     {
       "iso3": "BWA",
       "name": "Botswana",
-      "cluster": 1,
-      "probability": 0.5842028856277466
+      "cluster": 8,
+      "probability": 0.5514378547668457
     },
     {
       "iso3": "CAF",
       "name": "Central African Republic",
-      "cluster": 11,
-      "probability": 0.6267446875572205
+      "cluster": 0,
+      "probability": 0.5676870942115784
     },
     {
       "iso3": "CAN",
       "name": "Canada",
-      "cluster": 7,
-      "probability": 0.5
+      "cluster": 5,
+      "probability": 0.5439344048500061
     },
     {
       "iso3": "CHE",
       "name": "Switzerland",
-      "cluster": 6,
-      "probability": 0.5825503468513489
+      "cluster": 9,
+      "probability": 0.5912677645683289
     },
     {
       "iso3": "CHL",
       "name": "Chile",
-      "cluster": 8,
-      "probability": 0.582484245300293
+      "cluster": 3,
+      "probability": 0.5227389931678772
     },
     {
       "iso3": "CHN",
       "name": "People's Republic of China",
-      "cluster": 9,
-      "probability": 0.5226934552192688
+      "cluster": 7,
+      "probability": 0.5985254049301147
     },
     {
       "iso3": "CIV",
       "name": "Ivory Coast",
-      "cluster": 11,
-      "probability": 0.641239583492279
+      "cluster": 0,
+      "probability": 0.8086510300636292
     },
     {
       "iso3": "CMR",
       "name": "Cameroon",
-      "cluster": 11,
-      "probability": 0.6349223256111145
+      "cluster": 0,
+      "probability": 0.6700649857521057
     },
     {
       "iso3": "COD",
       "name": "Democratic Republic of the Congo",
-      "cluster": 11,
-      "probability": 0.6041863560676575
+      "cluster": 0,
+      "probability": 0.673524022102356
     },
     {
       "iso3": "COG",
       "name": "Republic of the Congo",
-      "cluster": 11,
-      "probability": 0.6159230470657349
+      "cluster": 0,
+      "probability": 0.6040785908699036
     },
     {
       "iso3": "COL",
       "name": "Colombia",
-      "cluster": 8,
-      "probability": 0.6160155534744263
+      "cluster": 1,
+      "probability": 1.0
     },
     {
       "iso3": "COM",
       "name": "Comoros",
-      "cluster": 11,
-      "probability": 0.5832605361938477
+      "cluster": 13,
+      "probability": 0.584296703338623
     },
     {
       "iso3": "CPV",
       "name": "Cape Verde",
-      "cluster": 11,
-      "probability": 0.5
+      "cluster": 13,
+      "probability": 0.5911664962768555
     },
     {
       "iso3": "CRI",
       "name": "Costa Rica",
-      "cluster": 8,
-      "probability": 0.6259521842002869
+      "cluster": 3,
+      "probability": 0.610077440738678
     },
     {
       "iso3": "CUB",
       "name": "Cuba",
-      "cluster": 8,
-      "probability": 0.5341302752494812
+      "cluster": 3,
+      "probability": 0.5839502811431885
     },
     {
       "iso3": "CYP",
       "name": "Cyprus",
-      "cluster": 2,
-      "probability": 0.5225028991699219
+      "cluster": 6,
+      "probability": 0.508324921131134
     },
     {
       "iso3": "CZE",
       "name": "Czech Republic",
       "cluster": 6,
-      "probability": 0.6066244840621948
+      "probability": 0.5617274641990662
     },
     {
       "iso3": "DEU",
       "name": "Germany",
       "cluster": 6,
-      "probability": 0.574709415435791
+      "probability": 0.5232919454574585
     },
     {
       "iso3": "DJI",
       "name": "Djibouti",
-      "cluster": 11,
-      "probability": 0.6108099818229675
+      "cluster": 13,
+      "probability": 0.5815581679344177
     },
     {
       "iso3": "DMA",
       "name": "Dominica",
-      "cluster": 3,
-      "probability": 0.6611889600753784
+      "cluster": 2,
+      "probability": 0.5802688598632812
     },
     {
       "iso3": "DOM",
       "name": "Dominican Republic",
-      "cluster": 8,
-      "probability": 0.6386331915855408
+      "cluster": 3,
+      "probability": 0.6191463470458984
     },
     {
       "iso3": "DZA",
       "name": "Algeria",
-      "cluster": 12,
-      "probability": 0.5274214148521423
+      "cluster": 7,
+      "probability": 0.5796905159950256
     },
     {
       "iso3": "ECU",
       "name": "Ecuador",
-      "cluster": 8,
-      "probability": 0.599450945854187
+      "cluster": 1,
+      "probability": 0.6427109241485596
     },
     {
       "iso3": "EGY",
       "name": "Egypt",
-      "cluster": 12,
-      "probability": 0.566435694694519
+      "cluster": 7,
+      "probability": 0.5750888586044312
     },
     {
       "iso3": "ERI",
       "name": "Eritrea",
-      "cluster": 11,
-      "probability": 0.5588512420654297
+      "cluster": 10,
+      "probability": 0.6138243079185486
     },
     {
       "iso3": "ESP",
       "name": "Spain",
       "cluster": 6,
-      "probability": 0.5809049606323242
+      "probability": 0.513660192489624
     },
     {
       "iso3": "EST",
       "name": "Estonia",
       "cluster": 6,
-      "probability": 0.6318027377128601
+      "probability": 0.587547242641449
     },
     {
       "iso3": "ETH",
       "name": "Ethiopia",
-      "cluster": 11,
-      "probability": 0.5496312379837036
+      "cluster": 10,
+      "probability": 0.5184810161590576
     },
     {
       "iso3": "FIN",
       "name": "Finland",
       "cluster": 6,
-      "probability": 0.6300962567329407
+      "probability": 0.5682597160339355
     },
     {
       "iso3": "FJI",
       "name": "Fiji",
-      "cluster": 3,
-      "probability": 0.6141237616539001
+      "cluster": 2,
+      "probability": 0.5617511868476868
     },
     {
       "iso3": "FRA",
       "name": "France",
       "cluster": 6,
-      "probability": 0.5591728091239929
+      "probability": 0.5
     },
     {
       "iso3": "FSM",
       "name": "Federated States of Micronesia",
-      "cluster": 3,
-      "probability": 0.55193692445755
+      "cluster": 4,
+      "probability": 1.0
     },
     {
       "iso3": "GAB",
       "name": "Gabon",
-      "cluster": 11,
-      "probability": 0.6151823401451111
+      "cluster": 0,
+      "probability": 0.6784339547157288
     },
     {
       "iso3": "GBR",
       "name": "United Kingdom",
-      "cluster": 0,
-      "probability": 0.5249552130699158
+      "cluster": 5,
+      "probability": 1.0
     },
     {
       "iso3": "GEO",
       "name": "Georgia",
-      "cluster": 6,
-      "probability": 0.5471453070640564
+      "cluster": 12,
+      "probability": 0.5292150378227234
     },
     {
       "iso3": "GHA",
       "name": "Ghana",
-      "cluster": 11,
-      "probability": 0.5869861841201782
+      "cluster": 10,
+      "probability": 0.5320742726325989
     },
     {
       "iso3": "GIN",
       "name": "Guinea",
-      "cluster": 11,
-      "probability": 0.6306869387626648
+      "cluster": 0,
+      "probability": 0.7082381248474121
     },
     {
       "iso3": "GMB",
       "name": "The Gambia",
-      "cluster": 11,
-      "probability": 0.5994806885719299
+      "cluster": 13,
+      "probability": 0.5675320625305176
     },
     {
       "iso3": "GNB",
       "name": "Guinea-Bissau",
-      "cluster": 11,
-      "probability": 0.6126958131790161
+      "cluster": 13,
+      "probability": 0.580938994884491
     },
     {
       "iso3": "GNQ",
       "name": "Equatorial Guinea",
-      "cluster": 11,
-      "probability": 0.5932371616363525
+      "cluster": 13,
+      "probability": 0.6005164384841919
     },
     {
       "iso3": "GRC",
       "name": "Greece",
       "cluster": 6,
-      "probability": 0.6421109437942505
+      "probability": 0.5625501871109009
     },
     {
       "iso3": "GRD",
       "name": "Grenada",
-      "cluster": 3,
-      "probability": 0.6320376396179199
+      "cluster": 2,
+      "probability": 0.6020176410675049
     },
     {
       "iso3": "GTM",
       "name": "Guatemala",
-      "cluster": 8,
-      "probability": 0.6191756725311279
+      "cluster": 3,
+      "probability": 0.5918985605239868
     },
     {
       "iso3": "GUY",
       "name": "Guyana",
-      "cluster": 3,
-      "probability": 0.5957489609718323
+      "cluster": 2,
+      "probability": 0.5712379813194275
     },
     {
       "iso3": "HND",
       "name": "Honduras",
-      "cluster": 8,
-      "probability": 0.6118497848510742
+      "cluster": 3,
+      "probability": 0.6032419204711914
     },
     {
       "iso3": "HRV",
       "name": "Croatia",
-      "cluster": 6,
-      "probability": 0.6134690642356873
+      "cluster": 12,
+      "probability": 0.5183511972427368
     },
     {
       "iso3": "HTI",
       "name": "Haiti",
-      "cluster": 11,
-      "probability": 0.5634062886238098
+      "cluster": 0,
+      "probability": 0.550408661365509
     },
     {
       "iso3": "HUN",
       "name": "Hungary",
       "cluster": 6,
-      "probability": 0.6082793474197388
+      "probability": 0.5567572116851807
     },
     {
       "iso3": "IDN",
       "name": "Indonesia",
-      "cluster": 1,
-      "probability": 0.5147812962532043
+      "cluster": 8,
+      "probability": 0.5835517048835754
     },
     {
       "iso3": "IND",
       "name": "India",
-      "cluster": 1,
-      "probability": 0.5323886275291443
+      "cluster": 8,
+      "probability": 0.54652339220047
     },
     {
       "iso3": "IRL",
       "name": "Ireland",
-      "cluster": 2,
-      "probability": 0.5
+      "cluster": 5,
+      "probability": 0.6110898852348328
     },
     {
       "iso3": "IRN",
       "name": "Iran",
-      "cluster": 9,
-      "probability": 0.5172181129455566
+      "cluster": 7,
+      "probability": 0.5643678307533264
     },
     {
       "iso3": "IRQ",
       "name": "Iraq",
-      "cluster": 12,
-      "probability": 0.5615304708480835
+      "cluster": 7,
+      "probability": 0.5868219137191772
     },
     {
       "iso3": "ISL",
       "name": "Iceland",
       "cluster": 6,
-      "probability": 0.5941578149795532
+      "probability": 0.5843710899353027
     },
     {
       "iso3": "ITA",
       "name": "Italy",
       "cluster": 6,
-      "probability": 0.5988335013389587
+      "probability": 0.5379013419151306
     },
     {
       "iso3": "JAM",
       "name": "Jamaica",
-      "cluster": 3,
-      "probability": 0.6138759255409241
+      "cluster": 2,
+      "probability": 0.6057762503623962
     },
     {
       "iso3": "JOR",
       "name": "Jordan",
-      "cluster": 12,
-      "probability": 0.6372257471084595
+      "cluster": 7,
+      "probability": 0.6394346952438354
     },
     {
       "iso3": "JPN",
       "name": "Japan",
-      "cluster": 0,
-      "probability": 0.5466157793998718
+      "cluster": 5,
+      "probability": 0.6369925737380981
     },
     {
       "iso3": "KAZ",
       "name": "Kazakhstan",
-      "cluster": 9,
-      "probability": 0.5438518524169922
+      "cluster": 12,
+      "probability": 0.5748719573020935
     },
     {
       "iso3": "KEN",
       "name": "Kenya",
-      "cluster": 1,
-      "probability": 0.6330259442329407
+      "cluster": 8,
+      "probability": 0.5471947193145752
     },
     {
       "iso3": "KGZ",
       "name": "Kyrgyzstan",
-      "cluster": 12,
-      "probability": 0.5249730944633484
+      "cluster": 7,
+      "probability": 0.6131024360656738
     },
     {
       "iso3": "KHM",
       "name": "Cambodia",
-      "cluster": 12,
-      "probability": 0.5404146909713745
+      "cluster": 7,
+      "probability": 0.5702996253967285
     },
     {
       "iso3": "KIR",
       "name": "Kiribati",
-      "cluster": 3,
-      "probability": 0.6042677164077759
+      "cluster": 2,
+      "probability": 0.5034962296485901
     },
     {
       "iso3": "KNA",
       "name": "Saint Kitts and Nevis",
-      "cluster": 3,
-      "probability": 0.638388454914093
+      "cluster": 2,
+      "probability": 0.5952658653259277
     },
     {
       "iso3": "KOR",
       "name": "South Korea",
-      "cluster": 9,
-      "probability": 0.5
+      "cluster": 3,
+      "probability": 0.5195576548576355
     },
     {
       "iso3": "KWT",
       "name": "Kuwait",
-      "cluster": 12,
-      "probability": 0.5626057386398315
+      "cluster": 11,
+      "probability": 0.6004552245140076
     },
     {
       "iso3": "LAO",
       "name": "Laos",
-      "cluster": 12,
-      "probability": 0.5180991291999817
+      "cluster": 7,
+      "probability": 0.5566995739936829
     },
     {
       "iso3": "LBN",
       "name": "Lebanon",
-      "cluster": 12,
-      "probability": 0.5772745013237
+      "cluster": 7,
+      "probability": 0.6504980325698853
     },
     {
       "iso3": "LBR",
       "name": "Liberia",
-      "cluster": 11,
-      "probability": 0.598677396774292
+      "cluster": 13,
+      "probability": 0.577434778213501
     },
     {
       "iso3": "LBY",
       "name": "Libya",
-      "cluster": 12,
-      "probability": 0.5642088055610657
+      "cluster": 7,
+      "probability": 0.582020103931427
     },
     {
       "iso3": "LCA",
       "name": "Saint Lucia",
-      "cluster": 3,
-      "probability": 0.6574236154556274
+      "cluster": 2,
+      "probability": 0.5861462950706482
     },
     {
       "iso3": "LIE",
       "name": "Liechtenstein",
-      "cluster": 6,
-      "probability": 0.5287901759147644
+      "cluster": 9,
+      "probability": 0.5024831891059875
     },
     {
       "iso3": "LKA",
       "name": "Sri Lanka",
-      "cluster": 1,
-      "probability": 0.5
+      "cluster": 8,
+      "probability": 0.5904582738876343
     },
     {
       "iso3": "LSO",
       "name": "Lesotho",
-      "cluster": 1,
-      "probability": 0.5463921427726746
+      "cluster": 13,
+      "probability": 0.5
     },
     {
       "iso3": "LTU",
       "name": "Lithuania",
       "cluster": 6,
-      "probability": 0.620805025100708
+      "probability": 0.6043359637260437
     },
     {
       "iso3": "LUX",
       "name": "Luxembourg",
-      "cluster": 6,
-      "probability": 0.6040121912956238
+      "cluster": 9,
+      "probability": 0.5418820977210999
     },
     {
       "iso3": "LVA",
       "name": "Latvia",
       "cluster": 6,
-      "probability": 0.6300941109657288
+      "probability": 0.5957213640213013
     },
     {
       "iso3": "MAR",
       "name": "Morocco",
-      "cluster": 12,
-      "probability": 0.5463771820068359
+      "cluster": 7,
+      "probability": 0.601049542427063
     },
     {
       "iso3": "MCO",
       "name": "Monaco",
-      "cluster": 6,
-      "probability": 0.5
+      "cluster": 9,
+      "probability": 0.5049465894699097
     },
     {
       "iso3": "MDA",
       "name": "Moldova",
-      "cluster": 6,
-      "probability": 0.5447229146957397
+      "cluster": 12,
+      "probability": 0.5277058482170105
     },
     {
       "iso3": "MDG",
       "name": "Madagascar",
-      "cluster": 11,
-      "probability": 0.6222125291824341
+      "cluster": 0,
+      "probability": 0.669862687587738
     },
     {
       "iso3": "MDV",
       "name": "Maldives",
-      "cluster": 3,
-      "probability": 0.5867347121238708
+      "cluster": 2,
+      "probability": 0.5876539945602417
     },
     {
       "iso3": "MEX",
       "name": "Mexico",
-      "cluster": 8,
-      "probability": 0.5326234698295593
+      "cluster": 1,
+      "probability": 0.5631039142608643
     },
     {
       "iso3": "MHL",
       "name": "Marshall Islands",
-      "cluster": 3,
-      "probability": 0.5368965268135071
+      "cluster": 4,
+      "probability": 0.6665058732032776
     },
     {
       "iso3": "MKD",
       "name": "North Macedonia",
-      "cluster": 6,
-      "probability": 0.5652166604995728
+      "cluster": 12,
+      "probability": 0.5249659419059753
     },
     {
       "iso3": "MLI",
       "name": "Mali",
-      "cluster": 11,
-      "probability": 0.6249154806137085
+      "cluster": 0,
+      "probability": 0.6172290444374084
     },
     {
       "iso3": "MLT",
       "name": "Malta",
       "cluster": 2,
-      "probability": 0.5250693559646606
+      "probability": 0.5796690583229065
     },
     {
       "iso3": "MMR",
       "name": "Myanmar",
-      "cluster": 12,
-      "probability": 0.5237882137298584
-    },
-    {
-      "iso3": "MNE",
-      "name": "Montenegro",
-      "cluster": 6,
-      "probability": 0.5689648389816284
-    },
-    {
-      "iso3": "MNG",
-      "name": "Mongolia",
-      "cluster": 12,
-      "probability": 0.5102528929710388
-    },
-    {
-      "iso3": "MOZ",
-      "name": "Mozambique",
-      "cluster": 1,
-      "probability": 0.5809877514839172
-    },
-    {
-      "iso3": "MRT",
-      "name": "Mauritania",
-      "cluster": 12,
-      "probability": 0.5781316161155701
-    },
-    {
-      "iso3": "MUS",
-      "name": "Mauritius",
-      "cluster": 3,
-      "probability": 0.5913852453231812
-    },
-    {
-      "iso3": "MWI",
-      "name": "Malawi",
-      "cluster": 1,
-      "probability": 0.606279730796814
-    },
-    {
-      "iso3": "MYS",
-      "name": "Malaysia",
-      "cluster": 0,
-      "probability": 0.5035005211830139
-    },
-    {
-      "iso3": "NAM",
-      "name": "Namibia",
-      "cluster": 1,
-      "probability": 0.6072622537612915
-    },
-    {
-      "iso3": "NER",
-      "name": "Niger",
-      "cluster": 11,
-      "probability": 0.6172137260437012
-    },
-    {
-      "iso3": "NGA",
-      "name": "Nigeria",
-      "cluster": 11,
-      "probability": 0.5775260329246521
-    },
-    {
-      "iso3": "NIC",
-      "name": "Nicaragua",
-      "cluster": 8,
-      "probability": 0.5987701416015625
-    },
-    {
-      "iso3": "NLD",
-      "name": "Kingdom of the Netherlands",
-      "cluster": 6,
-      "probability": 0.5558432340621948
-    },
-    {
-      "iso3": "NOR",
-      "name": "Norway",
-      "cluster": 6,
-      "probability": 0.5673954486846924
-    },
-    {
-      "iso3": "NPL",
-      "name": "Nepal",
-      "cluster": 1,
-      "probability": 0.5368613004684448
-    },
-    {
-      "iso3": "NRU",
-      "name": "Nauru",
-      "cluster": 3,
-      "probability": 0.5742602348327637
-    },
-    {
-      "iso3": "NZL",
-      "name": "New Zealand",
       "cluster": 0,
       "probability": 0.5
     },
     {
+      "iso3": "MNE",
+      "name": "Montenegro",
+      "cluster": 12,
+      "probability": 0.5
+    },
+    {
+      "iso3": "MNG",
+      "name": "Mongolia",
+      "cluster": 7,
+      "probability": 0.548289954662323
+    },
+    {
+      "iso3": "MOZ",
+      "name": "Mozambique",
+      "cluster": 8,
+      "probability": 0.5
+    },
+    {
+      "iso3": "MRT",
+      "name": "Mauritania",
+      "cluster": 10,
+      "probability": 0.6495315432548523
+    },
+    {
+      "iso3": "MUS",
+      "name": "Mauritius",
+      "cluster": 2,
+      "probability": 0.5928091406822205
+    },
+    {
+      "iso3": "MWI",
+      "name": "Malawi",
+      "cluster": 8,
+      "probability": 0.5260937213897705
+    },
+    {
+      "iso3": "MYS",
+      "name": "Malaysia",
+      "cluster": 8,
+      "probability": 0.587845504283905
+    },
+    {
+      "iso3": "NAM",
+      "name": "Namibia",
+      "cluster": 8,
+      "probability": 0.5267080068588257
+    },
+    {
+      "iso3": "NER",
+      "name": "Niger",
+      "cluster": 0,
+      "probability": 0.6097028255462646
+    },
+    {
+      "iso3": "NGA",
+      "name": "Nigeria",
+      "cluster": 10,
+      "probability": 0.5
+    },
+    {
+      "iso3": "NIC",
+      "name": "Nicaragua",
+      "cluster": 3,
+      "probability": 0.6108856201171875
+    },
+    {
+      "iso3": "NLD",
+      "name": "Kingdom of the Netherlands",
+      "cluster": 9,
+      "probability": 0.5699073076248169
+    },
+    {
+      "iso3": "NOR",
+      "name": "Norway",
+      "cluster": 9,
+      "probability": 0.5645734667778015
+    },
+    {
+      "iso3": "NPL",
+      "name": "Nepal",
+      "cluster": 8,
+      "probability": 0.5722427368164062
+    },
+    {
+      "iso3": "NRU",
+      "name": "Nauru",
+      "cluster": 2,
+      "probability": 0.5071155428886414
+    },
+    {
+      "iso3": "NZL",
+      "name": "New Zealand",
+      "cluster": 5,
+      "probability": 0.5804808139801025
+    },
+    {
       "iso3": "OMN",
       "name": "Oman",
-      "cluster": 12,
-      "probability": 0.5599772930145264
+      "cluster": 11,
+      "probability": 0.5
     },
     {
       "iso3": "PAK",
       "name": "Pakistan",
-      "cluster": 1,
-      "probability": 0.5660608410835266
+      "cluster": 8,
+      "probability": 0.5473607778549194
     },
     {
       "iso3": "PAN",
       "name": "Panama",
-      "cluster": 8,
-      "probability": 0.615151047706604
+      "cluster": 3,
+      "probability": 0.6106597185134888
     },
     {
       "iso3": "PER",
       "name": "Peru",
-      "cluster": 8,
-      "probability": 0.5841938853263855
+      "cluster": 1,
+      "probability": 0.6665112972259521
     },
     {
       "iso3": "PHL",
       "name": "Philippines",
-      "cluster": 12,
-      "probability": 0.5295015573501587
+      "cluster": 1,
+      "probability": 0.6333240270614624
     },
     {
       "iso3": "PLW",
       "name": "Palau",
-      "cluster": 3,
-      "probability": 0.5355759859085083
+      "cluster": 4,
+      "probability": 0.5943290591239929
     },
     {
       "iso3": "PNG",
       "name": "Papua New Guinea",
-      "cluster": 1,
-      "probability": 0.5867879986763
+      "cluster": 8,
+      "probability": 0.5532580614089966
     },
     {
       "iso3": "POL",
       "name": "Poland",
       "cluster": 6,
-      "probability": 0.5673571825027466
+      "probability": 0.5428321957588196
     },
     {
       "iso3": "PRK",
       "name": "North Korea",
-      "cluster": 4,
-      "probability": 1.0
+      "cluster": 7,
+      "probability": 0.5487349033355713
     },
     {
       "iso3": "PRT",
       "name": "Portugal",
       "cluster": 6,
-      "probability": 0.6075640916824341
+      "probability": 0.6020973324775696
     },
     {
       "iso3": "PRY",
       "name": "Paraguay",
-      "cluster": 8,
-      "probability": 0.6140987277030945
+      "cluster": 1,
+      "probability": 0.6506103277206421
     },
     {
       "iso3": "PSE",
       "name": "Palestine",
-      "cluster": 12,
-      "probability": 0.5528482794761658
+      "cluster": 7,
+      "probability": 0.6019583940505981
     },
     {
       "iso3": "QAT",
       "name": "Qatar",
-      "cluster": 12,
-      "probability": 0.5391232967376709
+      "cluster": 11,
+      "probability": 0.6557340621948242
     },
     {
       "iso3": "ROU",
       "name": "Romania",
       "cluster": 6,
-      "probability": 0.5819363594055176
+      "probability": 0.5633667707443237
     },
     {
       "iso3": "RUS",
       "name": "Russia",
-      "cluster": 9,
-      "probability": 0.5034980773925781
+      "cluster": 1,
+      "probability": 0.5
     },
     {
       "iso3": "RWA",
       "name": "Rwanda",
-      "cluster": 11,
-      "probability": 0.5922289490699768
+      "cluster": 0,
+      "probability": 0.5317542552947998
     },
     {
       "iso3": "SAU",
       "name": "Saudi Arabia",
-      "cluster": 12,
-      "probability": 0.527728796005249
+      "cluster": 7,
+      "probability": 0.6200303435325623
     },
     {
       "iso3": "SDN",
       "name": "Sudan",
-      "cluster": 11,
-      "probability": 0.5864265561103821
+      "cluster": 10,
+      "probability": 0.5371958017349243
     },
     {
       "iso3": "SEN",
       "name": "Senegal",
-      "cluster": 11,
-      "probability": 0.6168138980865479
+      "cluster": 0,
+      "probability": 0.6258059144020081
     },
     {
       "iso3": "SGP",
       "name": "Singapore",
-      "cluster": 3,
+      "cluster": 5,
       "probability": 0.5
     },
     {
       "iso3": "SLB",
       "name": "Solomon Islands",
-      "cluster": 3,
-      "probability": 0.6143169403076172
+      "cluster": 2,
+      "probability": 0.515468955039978
     },
     {
       "iso3": "SLE",
       "name": "Sierra Leone",
-      "cluster": 11,
-      "probability": 0.5879523158073425
+      "cluster": 13,
+      "probability": 0.5878157615661621
     },
     {
       "iso3": "SLV",
       "name": "El Salvador",
-      "cluster": 8,
-      "probability": 0.60850590467453
+      "cluster": 3,
+      "probability": 0.6335625052452087
     },
     {
       "iso3": "SMR",
       "name": "San Marino",
-      "cluster": 6,
-      "probability": 0.5532562136650085
+      "cluster": 9,
+      "probability": 0.5
     },
     {
       "iso3": "SOM",
       "name": "Somalia",
-      "cluster": 11,
-      "probability": 0.561974048614502
+      "cluster": 10,
+      "probability": 0.5550628304481506
     },
     {
       "iso3": "SRB",
       "name": "Serbia",
-      "cluster": 6,
-      "probability": 0.5874367356300354
+      "cluster": 12,
+      "probability": 0.5847123861312866
     },
     {
       "iso3": "SSD",
       "name": "South Sudan",
-      "cluster": 11,
-      "probability": 0.5358964204788208
+      "cluster": 10,
+      "probability": 0.5040627121925354
     },
     {
       "iso3": "STP",
       "name": "São Tomé and Príncipe",
-      "cluster": 11,
-      "probability": 0.570441484451294
+      "cluster": 13,
+      "probability": 0.5833537578582764
     },
     {
       "iso3": "SUR",
       "name": "Suriname",
-      "cluster": 3,
-      "probability": 0.5482674837112427
+      "cluster": 2,
+      "probability": 0.5530068278312683
     },
     {
       "iso3": "SVK",
       "name": "Slovakia",
       "cluster": 6,
-      "probability": 0.6309327483177185
+      "probability": 0.5927174091339111
     },
     {
       "iso3": "SVN",
       "name": "Slovenia",
-      "cluster": 6,
-      "probability": 0.6035428047180176
+      "cluster": 9,
+      "probability": 0.5599300265312195
     },
     {
       "iso3": "SWE",
       "name": "Sweden",
-      "cluster": 6,
-      "probability": 0.569797933101654
+      "cluster": 9,
+      "probability": 0.5660692453384399
     },
     {
       "iso3": "SWZ",
       "name": "Eswatini",
-      "cluster": 1,
-      "probability": 0.5391499996185303
+      "cluster": 2,
+      "probability": 0.5279784202575684
     },
     {
       "iso3": "SYC",
       "name": "Seychelles",
-      "cluster": 3,
-      "probability": 0.5880142450332642
+      "cluster": 2,
+      "probability": 0.5570722818374634
     },
     {
       "iso3": "SYR",
       "name": "Syria",
-      "cluster": 12,
-      "probability": 0.5503768920898438
+      "cluster": 7,
+      "probability": 0.5595240592956543
     },
     {
       "iso3": "TCD",
       "name": "Chad",
-      "cluster": 11,
-      "probability": 0.6341620087623596
+      "cluster": 0,
+      "probability": 0.5964586734771729
     },
     {
       "iso3": "TGO",
       "name": "Togo",
-      "cluster": 11,
-      "probability": 0.65925532579422
+      "cluster": 0,
+      "probability": 0.7805972099304199
     },
     {
       "iso3": "THA",
       "name": "Thailand",
-      "cluster": 0,
-      "probability": 0.5193251371383667
+      "cluster": 5,
+      "probability": 0.5233332514762878
     },
     {
       "iso3": "TJK",
       "name": "Tajikistan",
-      "cluster": 12,
-      "probability": 0.5218237042427063
+      "cluster": 7,
+      "probability": 0.5503855347633362
     },
     {
       "iso3": "TKM",
       "name": "Turkmenistan",
-      "cluster": 12,
-      "probability": 0.5
+      "cluster": 7,
+      "probability": 0.5478842854499817
     },
     {
       "iso3": "TLS",
       "name": "Timor-Leste",
-      "cluster": 3,
-      "probability": 0.5542652010917664
+      "cluster": 2,
+      "probability": 0.5326693058013916
     },
     {
       "iso3": "TON",
       "name": "Tonga",
-      "cluster": 3,
-      "probability": 0.6282692551612854
+      "cluster": 2,
+      "probability": 0.549182653427124
     },
     {
       "iso3": "TTO",
       "name": "Trinidad and Tobago",
-      "cluster": 3,
-      "probability": 0.6203523874282837
+      "cluster": 2,
+      "probability": 0.6241917610168457
     },
     {
       "iso3": "TUN",
       "name": "Tunisia",
-      "cluster": 12,
-      "probability": 0.5670120120048523
+      "cluster": 7,
+      "probability": 0.6360394954681396
     },
     {
       "iso3": "TUR",
       "name": "Turkey",
-      "cluster": 9,
-      "probability": 0.5465447306632996
+      "cluster": 7,
+      "probability": 0.6362640857696533
     },
     {
       "iso3": "TUV",
       "name": "Tuvalu",
-      "cluster": 3,
-      "probability": 0.6031582951545715
+      "cluster": 2,
+      "probability": 0.5
     },
     {
       "iso3": "TWN",
       "name": "Taiwan",
-      "cluster": 5,
-      "probability": 1.0
+      "cluster": 3,
+      "probability": 0.5098142623901367
     },
     {
       "iso3": "TZA",
       "name": "Tanzania",
-      "cluster": 1,
-      "probability": 0.6289220452308655
+      "cluster": 8,
+      "probability": 0.5271472334861755
     },
     {
       "iso3": "UGA",
       "name": "Uganda",
-      "cluster": 1,
-      "probability": 0.6006069183349609
+      "cluster": 8,
+      "probability": 0.5384287238121033
     },
     {
       "iso3": "UKR",
       "name": "Ukraine",
-      "cluster": 10,
-      "probability": 0.5410795211791992
+      "cluster": 12,
+      "probability": 0.5853623747825623
     },
     {
       "iso3": "URY",
       "name": "Uruguay",
-      "cluster": 8,
-      "probability": 0.5831243991851807
+      "cluster": 3,
+      "probability": 0.6022498607635498
     },
     {
       "iso3": "USA",
       "name": "United States",
-      "cluster": 7,
+      "cluster": 3,
       "probability": 0.5
     },
     {
       "iso3": "UZB",
       "name": "Uzbekistan",
-      "cluster": 12,
-      "probability": 0.5308133959770203
+      "cluster": 7,
+      "probability": 0.5539819002151489
     },
     {
       "iso3": "VAT",
       "name": "Vatican City",
-      "cluster": 13,
-      "probability": 1.0
+      "cluster": 9,
+      "probability": 0.518126904964447
     },
     {
       "iso3": "VCT",
       "name": "Saint Vincent and the Grenadines",
-      "cluster": 3,
-      "probability": 0.6516627073287964
+      "cluster": 2,
+      "probability": 0.5823980569839478
     },
     {
       "iso3": "VEN",
       "name": "Venezuela",
-      "cluster": 8,
-      "probability": 0.5243849158287048
+      "cluster": 1,
+      "probability": 0.5738473534584045
     },
     {
       "iso3": "VNM",
       "name": "Vietnam",
-      "cluster": 12,
-      "probability": 0.5251961946487427
+      "cluster": 7,
+      "probability": 0.5804529786109924
     },
     {
       "iso3": "VUT",
       "name": "Vanuatu",
-      "cluster": 3,
-      "probability": 0.5456786751747131
+      "cluster": 4,
+      "probability": 0.5
     },
     {
       "iso3": "WSM",
       "name": "Samoa",
-      "cluster": 3,
-      "probability": 0.6205834150314331
+      "cluster": 2,
+      "probability": 0.5578160881996155
     },
     {
       "iso3": "YEM",
       "name": "Yemen",
-      "cluster": 12,
-      "probability": 0.5304526090621948
+      "cluster": 7,
+      "probability": 0.5
     },
     {
       "iso3": "ZAF",
       "name": "South Africa",
-      "cluster": 1,
-      "probability": 0.5470850467681885
+      "cluster": 8,
+      "probability": 0.5504427552223206
     },
     {
       "iso3": "ZMB",
       "name": "Zambia",
-      "cluster": 1,
-      "probability": 0.5978592038154602
+      "cluster": 8,
+      "probability": 0.5277590751647949
     },
     {
       "iso3": "ZWE",
       "name": "Zimbabwe",
-      "cluster": 1,
-      "probability": 0.6079254150390625
+      "cluster": 8,
+      "probability": 0.5353294610977173
     }
   ]
 }
