@@ -4,6 +4,8 @@ import { resolveConfig } from "./lib/clusterConfig";
 import LeftPanel from "./components/LeftPanel";
 import CenterPanel from "./components/CenterPanel";
 import RightPanel from "./components/RightPanel";
+import Dendrogram from "./components/Dendrogram";
+import KMedoids from "./components/KMedoids";
 import BootScreen from "./components/BootScreen";
 
 export default function App() {
@@ -113,20 +115,22 @@ export default function App() {
         </div>
 
         <div className="flex border border-hud-panelEdge text-xs">
-          <button
-            onClick={() => setMode("cluster")}
-            className={`px-3 py-1 ${
-              mode === "cluster" ? "bg-hud-accent/20 text-hud-accent"
-                                 : "text-hud-textDim hover:text-hud-text"
-            }`}
-          >CLUSTER VIEW</button>
-          <button
-            onClick={() => setMode("compare")}
-            className={`px-3 py-1 border-l border-hud-panelEdge ${
-              mode === "compare" ? "bg-hud-accent/20 text-hud-accent"
-                                  : "text-hud-textDim hover:text-hud-text"
-            }`}
-          >COMPARE MODE</button>
+          {[
+            { id: "cluster", label: "CLUSTER VIEW" },
+            { id: "compare", label: "COMPARE MODE" },
+            { id: "dendrogram", label: "DENDROGRAM" },
+            { id: "kmedoids", label: "K-MEDOIDS" },
+          ].map((tab, i) => (
+            <button
+              key={tab.id}
+              onClick={() => setMode(tab.id)}
+              className={`px-3 py-1 ${i > 0 ? "border-l border-hud-panelEdge" : ""} ${
+                mode === tab.id
+                  ? "bg-hud-accent/20 text-hud-accent"
+                  : "text-hud-textDim hover:text-hud-text"
+              }`}
+            >{tab.label}</button>
+          ))}
         </div>
 
         <div className="text-hud-textDim text-xs">
@@ -134,28 +138,48 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 grid grid-cols-[280px_1fr_340px] gap-2 p-2 overflow-hidden">
-        <LeftPanel
-          data={data}
-          filters={filters}
-          selection={selection}
-          clusterConfig={clusterConfig}
-          configControl={configControl}
-        />
-        <CenterPanel
-          data={data}
-          mode={mode}
-          selection={selection}
-          filters={filters}
-          clusterConfig={clusterConfig}
-        />
-        <RightPanel
-          data={data}
-          mode={mode}
-          selection={selection}
-          clusterConfig={clusterConfig}
-        />
-      </main>
+      {mode === "dendrogram" ? (
+        <main className="flex-1 p-2 overflow-hidden">
+          <Dendrogram
+            data={data}
+            clustersPayload={data.clustersPayload}
+            clusterConfig={clusterConfig}
+            configControl={configControl}
+          />
+        </main>
+      ) : mode === "kmedoids" ? (
+        <main className="flex-1 p-2 overflow-hidden">
+          <KMedoids
+            data={data}
+            clustersPayload={data.clustersPayload}
+            clusterConfig={clusterConfig}
+            configControl={configControl}
+          />
+        </main>
+      ) : (
+        <main className="flex-1 grid grid-cols-[280px_1fr_340px] gap-2 p-2 overflow-hidden">
+          <LeftPanel
+            data={data}
+            filters={filters}
+            selection={selection}
+            clusterConfig={clusterConfig}
+            configControl={configControl}
+          />
+          <CenterPanel
+            data={data}
+            mode={mode}
+            selection={selection}
+            filters={filters}
+            clusterConfig={clusterConfig}
+          />
+          <RightPanel
+            data={data}
+            mode={mode}
+            selection={selection}
+            clusterConfig={clusterConfig}
+          />
+        </main>
+      )}
     </div>
   );
 }

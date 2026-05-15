@@ -11,6 +11,7 @@ Stages:
     2. tree_builder.py         ->  data/country_trees.json
     3. cluster.py              ->  data/clusters.json + data/similarity_matrix.npz
     4. build_frontend_data.py  ->  frontend/public/data/{countries,clusters,pairs}.json
+    5. export_dendrogram.py    ->  frontend/public/data/dendrogram.json
 """
 from __future__ import annotations
 import sys
@@ -43,6 +44,13 @@ STAGES = [
             Path("frontend/public/data/countries.json"),
             Path("frontend/public/data/clusters.json"),
             Path("frontend/public/data/pairs.json"),
+        ],
+    },
+    {
+        "label": "Exporting agglomerative dendrogram",
+        "script": "export_dendrogram.py",
+        "outputs": [
+            Path("frontend/public/data/dendrogram.json"),
         ],
     },
 ]

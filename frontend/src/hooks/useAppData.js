@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * Load all four static JSON files in parallel.
+ * Load the static JSON files the app needs, in parallel.
  *
  * Returns:
- *   { status, error, countries, clustersPayload, pairs, centroids, lookup }
+ *   { status, error, countries, clustersPayload, pairs, centroids, dendrogram, lookup }
  *
  *   status          = 'loading' | 'ready' | 'error'
  *   countries       = array of country objects (iso3, name, tree, lat, lng)
@@ -12,11 +12,15 @@ import { useEffect, useState } from "react";
  *                     { default, k_values, algorithms, configs }
  *   pairs           = raw pairs lookup, keyed "ISO3_A:ISO3_B" with A < B
  *   centroids       = { ISO3: [lat, lng] }
+ *   dendrogram      = the agglomerative hierarchy tree from dendrogram.json,
+ *                     or null if the file hasn't been generated yet
+ *                     (run export_dendrogram.py). Optional so the app still
+ *                     boots without it.
  *   lookup          = { byIso3, pair }
  *
- * Note: cluster assignment is NO LONGER baked into countries — it depends on
- * the active configuration, which App.jsx tracks. Components resolve cluster
- * info via lib/clusterConfig.js using the active config.
+ * Note: cluster assignment is NOT baked into countries — it depends on the
+ * active configuration, which App.jsx tracks. Components resolve cluster info
+ * via lib/clusterConfig.js using the active config.
  */
 export function useAppData() {
   const [state, setState] = useState({
@@ -26,6 +30,7 @@ export function useAppData() {
     clustersPayload: null,
     pairs: null,
     centroids: null,
+    dendrogram: null,
     lookup: null,
   });
 
@@ -37,8 +42,11 @@ export function useAppData() {
       fetch("/data/clusters.json").then(r => r.json()),
       fetch("/data/pairs.json").then(r => r.json()),
       fetch("/data/country_centroids.json").then(r => r.json()),
+      // dendrogram.json is optional — tolerate its absence so the app still
+      // boots if export_dendrogram.py hasn't been run yet.
+      fetch("/data/dendrogram.json").then(r => (r.ok ? r.json() : null)).catch(() => null),
     ])
-      .then(([countries, clustersPayload, pairs, centroids]) => {
+      .then(([countries, clustersPayload, pairs, centroids, dendrogram]) => {
         if (cancelled) return;
 
         const byIso3 = Object.fromEntries(countries.map(c => [c.iso3, c]));
@@ -63,6 +71,7 @@ export function useAppData() {
           clustersPayload,
           pairs,
           centroids,
+          dendrogram,
           lookup: { byIso3, pair },
         });
       })
